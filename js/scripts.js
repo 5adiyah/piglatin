@@ -22,7 +22,6 @@ var indexOfFirstVowel = function(word){
 };
 
 var pigLatin = function(englishword){
-  var englishword = englishword.split(" ");
   if(englishword != ""){
     if(!hasConsonantAt(englishword, 0)){
       var translatedWord = englishword;
@@ -35,10 +34,21 @@ var pigLatin = function(englishword){
   }
 };
 
+var pigSentence = function(sentence){
+  var newSentence = sentence.split(" ");
+  var finalsentence = [];
+  newSentence.forEach(function(englishword){
+    var word = pigLatin(englishword);
+    finalsentence.push(word);
+  });
+  var answer = finalsentence.join(" ")
+  return answer;
+};
+
 $(document).ready(function() {
   $("form#piglatin").submit(function(event) {
-    var englishword =$("input#phrase").val();
-    var result = pigLatin(englishword);
+    var sentence =($("input#phrase").val());
+    var result = pigSentence(sentence);
     $(".sentence").text(result);
     $("#result").show();
     event.preventDefault();
