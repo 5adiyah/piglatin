@@ -1,0 +1,23 @@
+#Pig Latin
+------------
+
+  **RULES OF PIG LATIN**
+    - if *word* starts with *vowel* add ay to the end
+    - if *word* starts with *consonant* move first consecutive consonants to the end and add ay
+      - if the first consonants includes "qu" more the u along with the q
+      - if *word* starts with *y* treat the y as a consonant
+
+  **PROGRAM STEPS/ALGORITH**
+    Read in *phrase* from user
+      - *phrase = $("input#phrase").val();*
+      - The phrase needs to be an array
+
+    Check if *phrase* starts with a *vowel*
+      - If yes: Don't move any letter, add "ay" to the end of the array
+      - Else:
+
+          For int i = 0, i < SIZE of phrase, i++
+            if phrase[i] != vowel
+              add phrasep[i] to toMove
+            else
+              exit loop
